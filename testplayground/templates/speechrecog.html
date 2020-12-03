@@ -1,0 +1,51 @@
+{%  extends 'base.html' %}
+
+{% block title %}
+{{ page_title }}
+{%endblock%}
+
+{% block css %}
+<link rel="stylesheet" href="{{url_for ('static', filename='css/index.css')}}" type="text/css">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <a class="btn btn-secondary" href="{{ url_for ('index')}}">Back</a>
+            <h1>Speech Recognition</h1>
+            <h4>
+                Click give command, then say "Select" then the name you want to select, after say "deselect" then the
+                name you want to deselect
+
+        </div>
+        <div class="col-12">
+            <br>
+            <button id='btnGiveCommand'>Give Command!</button>
+            <br>
+            <span id='message'></span>
+            <br>
+            <input id='chkSteve' type="checkbox"> Steve Rogers
+            <br>
+            <input id='chkTony' type="checkbox"> Tony Stark
+            <br>
+            <input id='chkBruce' type="checkbox"> Bruce Banner
+            <br>
+            <input id='chkNick' type="checkbox"> Nick Fury
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
+
+
+{% block script %}
+
+<script src="{{url_for('static', filename='js/speechrecog.js')}}"></script>
+
+{% endblock %}
+
+</body>
+
+</html>
