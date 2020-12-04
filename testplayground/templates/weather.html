@@ -1,0 +1,38 @@
+{%  extends 'base.html' %}
+
+{% block title %}
+{{ page_title }}
+{% endblock %}
+
+{% block css %}
+
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h1>Weather Api</h1>
+
+            <div>Area: {{ weather.nam }}</div>
+            <div>Dec: {{ weather.dec|title }}</div>
+            <div>Temp: {{ weather.temp }}&#x2103</div>
+            <div>Low temp: {{ weather.ltemp }}&#x2103</div>
+            <div>High Temp: {{ weather.htemp }}&#x2103</div>
+            <div>Wind Speed: {{ weather.wspeed }} Mph</div>
+            <div>Wind Direction: {{ weather.wdirection }}</div>
+            <div>longlitude: {{ weather.lng }}</div>
+            <div>latitude: {{ weather.lat }}</div>
+
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
+
+
+{% block script %}
+
+{% endblock %}
+
