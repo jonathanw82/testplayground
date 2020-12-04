@@ -1,0 +1,56 @@
+{%  extends 'base.html' %}
+
+{% block title %}
+{{ page_title }}
+{% endblock %}
+
+{% block css %}
+
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h1>Geo location Weather Api</h1>
+            <br>
+            <a class="btn btn-secondary" href="{{ url_for ('index')}}">Back</a>
+            <br>
+            <h3>Current Weather</h3>
+            <div>Area: {{ geoweather.area }}</div>
+            <div>Dec: {{ geoweather.dec|title }}</div>
+            <img src="{{ geoweather.iconnow }}" alt="wether icon">
+            <!-- temp to 2 decimal places -->
+            <div>Temp: {{ geoweather.current_temp }}&#x2103</div>
+            <div>Feels Like: {{ geoweather.feels_like }} &#x2103</div>
+            <div>Humidity: {{ geoweather.humid }} %</div>
+            <div>Visibility: {{ geoweather.visname }}</div>
+            <div>Wind Speed: {{ geoweather.wspeed_con }} Mph</div>
+            <div>Wind Direction: {{ geoweather.wdirectioncurrent }}</div>
+            <br>
+            <div>Weather Warning: {{ geoweather.alert }}</div>
+            <br>
+            <h3>Daily Weather</h3>
+
+
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
+
+<!-- <div>Area: {{ weather.nam }}</div>
+<div>Dec: {{ weather.dec|title }}</div>
+<div>Temp: {{ weather.temp }}&#x2103</div>
+<div>Low temp: {{ weather.ltemp }}&#x2103</div>
+<div>High Temp: {{ weather.htemp }}&#x2103</div>
+<div>Wind Speed: {{ weather.wspeed }} Mph</div>
+<div>Wind Direction: {{ weather.wdirection }}</div>
+<div>longlitude: {{ weather.lng }}</div>
+<div>latitude: {{ weather.lat }}</div> -->
+
+
+{% block script %}
+
+{% endblock %}

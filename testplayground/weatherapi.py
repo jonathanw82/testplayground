@@ -11,7 +11,7 @@ if path.exists("env.py"):
 
 keyweather = os.getenv('WEATHER_KEY')
 keygeo = os.getenv('GEO_KEY')
-userinput = 'BRISTOL'
+userinput = 'BS27 3HJ'
 
 # coridnates api
 
@@ -20,7 +20,7 @@ responsegeo = requests.get(f"https://api.opencagedata.com/geocode/v1/json?q={use
 geo = responsegeo.json()
 geofomat_str = json.dumps(geo, indent=2) 
 data = json.loads(geofomat_str)
-
+print(geofomat_str)
 for bar in data['results']:
     pin = bar['geometry']['lng']
     pin2 = bar['geometry']['lat']
