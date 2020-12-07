@@ -26,6 +26,12 @@ def speechtext():
     return render_template("speechtext.html", page_title="speech Text")
 
 
+@app.route("/acessnestdic")
+def acessnestdic():
+    
+    return render_template("nestdic.html", page_title="Nested dictionary")
+
+
 @app.route("/weather2")
 def weather2():
     # -------- get the exact long litude and latitude fom the post code --------------
@@ -38,7 +44,9 @@ def weather2():
     for georesults in geodata['results']:
         originallng = georesults['geometry']['lng']
         originallat = georesults['geometry']['lat']
-        area = georesults['formatted']
+        areapreslice = georesults['formatted']
+    
+    area = areapreslice.split(',')[0]
 
     exactlng = "%.2f" % originallng
     exactlat = "%.2f" % originallat
@@ -48,7 +56,7 @@ def weather2():
     #----------------------- get the exact weatherwith forcast------------------------
 
     queryweather = "lat=" + exactlat + "&lon=" + exactlng
-    exclude = "&exclude=" + "minutely"
+    exclude = "&exclude=" + "minutely," + "alerts"
     units = "&units=" + "metric"
     keyweatherapi = '&appid=' + keyweather
     response = requests.get(
@@ -56,11 +64,10 @@ def weather2():
     weatherresp = response.json()
     weather_formatted_str = json.dumps(weatherresp, indent=2)
     weatherdata = json.loads(weather_formatted_str)
-
     for wdata in weatherdata['current']['weather']:
         dec = wdata['description']
         icon = wdata['icon']
-    
+
     current_temp = weatherdata['current']['temp']
     humid = weatherdata['current']['humidity']
     feels_like = weatherdata['current']['feels_like']
@@ -77,8 +84,7 @@ def weather2():
     if vis >= 20000 < 39999:
         visname = 'Very Good'
     if vis >= 40000:
-        visname = 'Excellent'   
-    print(vis)         
+        visname = 'Excellent'          
 
     wspeed = weatherdata['current']['wind_speed']
     wspeed_con = (wspeed * 2.237)
@@ -89,6 +95,9 @@ def weather2():
     wdirectioncurrent = arr[(val1 % 16)]
      
     iconnow = f"http://openweathermap.org/img/wn/{icon}.png"
+    
+   
+
 
     context = {
         'dec': dec,
@@ -101,7 +110,6 @@ def weather2():
         'wspeed_con': "%.2f" % wspeed_con,
         'wspeed': wspeed,
         'wdirectioncurrent': wdirectioncurrent,
-        'alert': alert,
     }
 
     return render_template("weather2.html", page_title="Geo Weather",

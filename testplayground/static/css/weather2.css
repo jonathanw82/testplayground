@@ -1,0 +1,14 @@
+.weatherbox{
+    border: 1px solid black;
+    border-radius: 20px;
+    background-color: lightgrey;
+    width: 30%;
+}
+
+.currentweatherleft{
+    text-align: center;
+}
+
+.currentweatherright{
+    text-align: center;
+}

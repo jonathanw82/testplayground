@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block css %}
-
+    <link rel="stylesheet" href="{{url_for ('static', filename='css/weather2.css')}}">
 {% endblock %}
 
 {% block content %}
@@ -28,11 +28,24 @@
             <div>Wind Speed: {{ geoweather.wspeed_con }} Mph</div>
             <div>Wind Direction: {{ geoweather.wdirectioncurrent }}</div>
             <br>
-            <div>Weather Warning: {{ geoweather.alert }}</div>
-            <br>
             <h3>Daily Weather</h3>
-
-
+            <br>
+        </div>
+    </div>
+    <div class="col-sm-6 weatherbox">
+        <div class="row ">
+        <div class="col-sm-6 currentweatherleft">
+                <div>{{ geoweather.area }}</div>
+                <div>{{ geoweather.current_temp }}&#x2103</div>
+                <div>{{ geoweather.dec|title }}</div>
+            </div>
+            <div class="col-sm-6 currentweatherright">
+                <img src="{{ geoweather.iconnow }}" alt="wether icon"><br>
+                <div>Feels Like: {{ geoweather.feels_like }} &#x2103</div>
+            </div>
+        </div>
+        <div class="row">
+            
         </div>
     </div>
 </div>
