@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block css %}
-    <link rel="stylesheet" href="{{url_for ('static', filename='css/weather2.css')}}">
+<link rel="stylesheet" href="{{url_for ('static', filename='css/weather2.css')}}">
 {% endblock %}
 
 {% block content %}
@@ -27,27 +27,57 @@
             <div>Visibility: {{ geoweather.visname }}</div>
             <div>Wind Speed: {{ geoweather.wspeed_con }} Mph</div>
             <div>Wind Direction: {{ geoweather.wdirectioncurrent }}</div>
+            {% if geoweather.alertcurrent == None %}{% else %}<div>Alert: {{ geoweather.alertcurrent }}</div>{% endif %}
             <br>
             <h3>Daily Weather</h3>
             <br>
         </div>
     </div>
     <div class="col-sm-6 weatherbox">
-        <div class="row ">
-        <div class="col-sm-6 currentweatherleft">
-                <div>{{ geoweather.area }}</div>
-                <div>{{ geoweather.current_temp }}&#x2103</div>
-                <div>{{ geoweather.dec|title }}</div>
+        <div class="row">
+            <div class=" col-sm-6 currentweatherleft">
+                <div class="weathertext wetherarea">{{ geoweather.area }}</div>
+                <div class="weathertext">{{ geoweather.current_temp }}&#x2103</div>
+                <div class="weathertext">{{ geoweather.dec|title }}</div>
             </div>
             <div class="col-sm-6 currentweatherright">
                 <img src="{{ geoweather.iconnow }}" alt="wether icon"><br>
-                <div>Feels Like: {{ geoweather.feels_like }} &#x2103</div>
+                <div class="weathertext">Feels Like: {{ geoweather.feels_like }} &#x2103</div>
             </div>
         </div>
+        <div class="separator"></div>
         <div class="row">
-            
+            <div class="col dayforcastinfo">
+                <div class="dayforcastinfo">
+                    <img src="{{ geoweather.icon1 }}" alt="wether icon">
+                    <div class="weathertext">{{ geoweather.day1desc|title }}</div>
+                    <div class="weathertext">{{ geoweather.day1max }}/{{ geoweather.day1min }}</div>
+                </div>
+                <div class="dayforcastinfo">
+                    <img src="{{ geoweather.icon2 }}" alt="wether icon">
+                    <div class="weathertext">{{ geoweather.day2desc }}</div>
+                    <div class="weathertext">{{ geoweather.day2max }}/{{ geoweather.day2min }}</div>
+                </div>
+                <div class="dayforcastinfo">
+                    <img src="{{ geoweather.icon3 }}" alt="wether icon">
+                    <div class="weathertext">{{ geoweather.day3desc }}</div>
+                    <div class="weathertext">{{ geoweather.day3max }}/{{ geoweather.day3min }}</div>
+                </div>
+                <div class="dayforcastinfo">
+                    <img src="{{ geoweather.icon4 }}" alt="wether icon">
+                    <div class="weathertext">{{ geoweather.day4desc }}</div>
+                    <div class="weathertext">{{ geoweather.day4max }}/{{ geoweather.day4min }}</div>
+                </div>
+                <div class="dayforcastinfo">
+                    <img src="{{ geoweather.icon5 }}" alt="wether icon">
+                    <div class="weathertext">{{ geoweather.day5desc }}</div>
+                    <div class="weathertext">{{ geoweather.day5max }}/{{ geoweather.day5min }}</div>
+                </div>
+            </div>
         </div>
     </div>
+</div>
+
 </div>
 
 

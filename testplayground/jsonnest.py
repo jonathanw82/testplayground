@@ -7,4 +7,4 @@ with open('./source/data.json') as access_json:
 
 question_access = read_content['results']
 
-print(type(question_access))
+print(question_access[2])

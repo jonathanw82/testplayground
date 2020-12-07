@@ -2,13 +2,55 @@
     border: 1px solid black;
     border-radius: 20px;
     background-color: lightgrey;
-    width: 30%;
+    width: 100%;
 }
 
 .currentweatherleft{
     text-align: center;
+    width: 50%;
 }
 
 .currentweatherright{
     text-align: center;
+    width: 50%;
+}
+
+.dayforcastinfo{
+    text-align: center;
+    padding: 0px;
+    display: inline-block;
+}
+
+.separator{
+    border: 1px solid gray;
+}
+
+@media only screen and (max-width: 425px) {
+    .weathertext{
+        font-size: 0.9rem;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    .weathertext{
+        font-size: 0.9rem;
+    }
+    
+    .wetherarea{
+    padding-top: 8px;
+    }
+    .weatherbox{
+        padding-bottom: 10px;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    .weathertext{
+        font-size: 0.8rem;
+    }
+    
+    .wetherarea{
+    padding-top: 11px;
+    }
+   
 }
