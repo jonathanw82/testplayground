@@ -1,13 +1,38 @@
-.weatherbox{
+.weatherboxcold{
     border: 1px solid black;
     border-radius: 20px;
-    background-color: lightgrey;
+    background-image: linear-gradient(blue, lightblue) ;
     width: 100%;
+}
+.separatorcold{
+    border: 1px solid orange;
+}
+
+.weatherboxhot{
+    border: 1px solid black;
+    border-radius: 20px;
+    background-image: linear-gradient(red, yellow) ;
+    width: 100%;
+}
+.separatorhot{
+    border: 1px solid blue;
+}
+
+.rline{
+    margin-right: 2px;
 }
 
 .currentweatherleft{
     text-align: center;
     width: 50%;
+}
+
+.textcol{
+    color: white;
+}
+
+.textcol1{
+    color: black;
 }
 
 .currentweatherright{
@@ -21,9 +46,6 @@
     display: inline-block;
 }
 
-.separator{
-    border: 1px solid gray;
-}
 
 @media only screen and (max-width: 425px) {
     .weathertext{

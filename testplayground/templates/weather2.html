@@ -22,10 +22,12 @@
             <img src="{{ geoweather.iconnow }}" alt="wether icon">
             <!-- temp to 2 decimal places -->
             <div>Temp: {{ geoweather.current_temp }}&#x2103</div>
+            <div>Hi/Lo: {{ geoweather.current_max }}/{{ geoweather.current_min }}</div>
             <div>Feels Like: {{ geoweather.feels_like }} &#x2103</div>
             <div>Humidity: {{ geoweather.humid }} %</div>
             <div>Visibility: {{ geoweather.visname }}</div>
             <div>Wind Speed: {{ geoweather.wspeed_con }} Mph</div>
+            <div>Wind Speed: {{ geoweather.wspeed }} Kmh</div>
             <div>Wind Direction: {{ geoweather.wdirectioncurrent }}</div>
             {% if geoweather.alertcurrent == None %}{% else %}<div>Alert: {{ geoweather.alertcurrent }}</div>{% endif %}
             <br>
@@ -33,44 +35,46 @@
             <br>
         </div>
     </div>
-    <div class="col-sm-6 weatherbox">
+    <div id="weatherbox" class="col-sm-6 weatherboxcold">
         <div class="row">
-            <div class=" col-sm-6 currentweatherleft">
+            <div class=" col-sm-6 currentweatherleft textcol">
                 <div class="weathertext wetherarea">{{ geoweather.area }}</div>
-                <div class="weathertext">{{ geoweather.current_temp }}&#x2103</div>
+                <div id="current_temp" class="weathertext">{{ geoweather.current_temp }}&#x2103</div>
+                <div id="current_tempdisp" style="display:None">{{ geoweather.current_temp }}</div>
                 <div class="weathertext">{{ geoweather.dec|title }}</div>
             </div>
-            <div class="col-sm-6 currentweatherright">
+            <div class="col-sm-6 currentweatherright textcol">
                 <img src="{{ geoweather.iconnow }}" alt="wether icon"><br>
                 <div class="weathertext">Feels Like: {{ geoweather.feels_like }} &#x2103</div>
             </div>
         </div>
-        <div class="separator"></div>
+        <div id="separator" class="separatorcold"></div>
+        <div style="text-align: center;" class="weathertext textcol">Daily Forecast</div>
         <div class="row">
-            <div class="col dayforcastinfo">
-                <div class="dayforcastinfo">
+            <div class="col dayforcastinfo textcol1">
+                <div class="dayforcastinfo rline">
                     <img src="{{ geoweather.icon1 }}" alt="wether icon">
-                    <div class="weathertext">{{ geoweather.day1desc|title }}</div>
+                    <div class="weathertext">{{ geoweather.day1desc|title }},</div>
                     <div class="weathertext">{{ geoweather.day1max }}/{{ geoweather.day1min }}</div>
                 </div>
-                <div class="dayforcastinfo">
+                <div class="dayforcastinfo rline">
                     <img src="{{ geoweather.icon2 }}" alt="wether icon">
-                    <div class="weathertext">{{ geoweather.day2desc }}</div>
+                    <div class="weathertext">{{ geoweather.day2desc|title }},</div>
                     <div class="weathertext">{{ geoweather.day2max }}/{{ geoweather.day2min }}</div>
                 </div>
-                <div class="dayforcastinfo">
+                <div class="dayforcastinfo rline">
                     <img src="{{ geoweather.icon3 }}" alt="wether icon">
-                    <div class="weathertext">{{ geoweather.day3desc }}</div>
+                    <div class="weathertext">{{ geoweather.day3desc|title }},</div>
                     <div class="weathertext">{{ geoweather.day3max }}/{{ geoweather.day3min }}</div>
                 </div>
-                <div class="dayforcastinfo">
+                <div class="dayforcastinfo rline">
                     <img src="{{ geoweather.icon4 }}" alt="wether icon">
-                    <div class="weathertext">{{ geoweather.day4desc }}</div>
+                    <div class="weathertext">{{ geoweather.day4desc|title }},</div>
                     <div class="weathertext">{{ geoweather.day4max }}/{{ geoweather.day4min }}</div>
                 </div>
-                <div class="dayforcastinfo">
+                <div class="dayforcastinfo rline">
                     <img src="{{ geoweather.icon5 }}" alt="wether icon">
-                    <div class="weathertext">{{ geoweather.day5desc }}</div>
+                    <div class="weathertext">{{ geoweather.day5desc|title }},</div>
                     <div class="weathertext">{{ geoweather.day5max }}/{{ geoweather.day5min }}</div>
                 </div>
             </div>
@@ -95,5 +99,5 @@
 
 
 {% block script %}
-
+<script src="{{url_for('static', filename='js/weather2.js')}}"></script>
 {% endblock %}
