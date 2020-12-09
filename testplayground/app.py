@@ -8,7 +8,7 @@ if path.exists("env.py"):
 app = Flask(__name__)
 keyweather = os.getenv('WEATHER_KEY')
 keygeo = os.getenv('GEO_KEY')
-userinputgeo = 'bs200hh'
+userinputgeo = 'bs29up'
 userinput = 'CHEDDAR'
 
 
@@ -91,7 +91,10 @@ def weather2():
     weatherresp = response.json()
     weather_formatted_str = json.dumps(weatherresp, indent=2)
     weatherdata = json.loads(weather_formatted_str)
-    
+    # probability of rain 1-0 pop times by 100 so 1=100 0.50=50 
+    chanceofprecip = weatherdata['daily'][0]['pop']*100
+    percipnow = "%.0f" % chanceofprecip
+
     for wdata in weatherdata['current']['weather']:
         dec = wdata['description']
         icon = wdata['icon']
@@ -136,7 +139,7 @@ def weather2():
         day1desc = weatherday1['description']
         day1icon = weatherday1['icon']
     icon1 = f"http://openweathermap.org/img/wn/{day1icon}.png"
-    day1pop = weatherdata['daily'][1]['pop']
+    day1pop = weatherdata['daily'][1]['pop']*100
     # if the key is not always availble use .get it will return none if the
     # key not present
     day1rain = weatherdata['daily'][1].get('rain')  
@@ -188,6 +191,7 @@ def weather2():
         'dec': dec,
         'area': area,
         'iconnow': iconnow,
+        'percipnow': percipnow,
         'current_temp': "%.0f" % current_temp,
         'current_min': "%.0f" % current_min,
         'current_max': "%.0f" % current_max,
@@ -198,11 +202,12 @@ def weather2():
         'wspeed': wspeed,
         'wdirectioncurrent': wdirectioncurrent,
         'alertcurrent': alertcurrent,
+        
         'day1min': "%.0f" % day1min,
         'day1max': "%.0f" % day1max,
         'day1desc': day1desc,
         'icon1': icon1,
-        'day1pop': day1pop,
+        'day1pop': "%.0f" % day1pop,
         'day1rain': day1rain,
         'day1snow': day1snow,
 
@@ -210,7 +215,7 @@ def weather2():
         'day2max': "%.0f" % day2max,
         'day2desc': day2desc,
         'icon2': icon2,
-        'day2pop': day2pop,
+        'day2pop': "%.0f" % day2pop,
         'day2rain': day2rain,
         'day2snow': day2snow,
 
@@ -218,7 +223,7 @@ def weather2():
         'day3max': "%.0f" % day3max,
         'day3desc': day3desc,
         'icon3': icon3,
-        'day3pop': day3pop,
+        'day3pop': "%.0f" % day3pop,
         'day3rain': day3rain,
         'day3snow': day3snow,
 
@@ -226,7 +231,7 @@ def weather2():
         'day4max': "%.0f" % day4max,
         'day4desc': day4desc,
         'icon4': icon4,
-        'day4pop': day4pop,
+        'day4pop': "%.0f" % day4pop,
         'day4rain': day4rain,
         'day4snow': day4snow,
 
@@ -234,7 +239,7 @@ def weather2():
         'day5max': "%.0f" % day5max,
         'day5desc': day5desc,
         'icon5': icon5,
-        'day5pop': day5pop,
+        'day5pop': "%.0f" % day5pop,
         'day5rain': day5rain,
         'day5snow': day5snow,
 

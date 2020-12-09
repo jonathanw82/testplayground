@@ -1,5 +1,5 @@
 .weatherboxcold{
-    border: 1px solid black;
+    border: 1px solid red;
     border-radius: 20px;
     background-image: linear-gradient(blue, lightblue) ;
     width: 100%;
@@ -9,7 +9,7 @@
 }
 
 .weatherboxhot{
-    border: 1px solid black;
+    border: 1px solid blue;
     border-radius: 20px;
     background-image: linear-gradient(red, yellow) ;
     width: 100%;
@@ -46,20 +46,49 @@
     display: inline-block;
 }
 
+.rainropimage{
+    width: 10px;
+    height: auto;
+}
+
+.alert_heading{
+    text-align: center;
+    color: white;
+}
+
+.weathertextalert{
+    color: black;
+    text-align: center;
+    background-color: red;
+}
+
+.weatherarea{
+    padding-top: 3px;
+}
+
+@media only screen and (max-width: 768px) {
+   
+    .weatherarea{
+        padding-top: 3px;
+    }
+
+}
 
 @media only screen and (max-width: 425px) {
+
     .weathertext{
         font-size: 0.9rem;
     }
+    .weatherarea{
+        padding-top: 8px;
+    }
+
 }
 
 @media only screen and (max-width: 375px) {
+
     .weathertext{
         font-size: 0.9rem;
-    }
-    
-    .wetherarea{
-    padding-top: 8px;
     }
     .weatherbox{
         padding-bottom: 10px;
@@ -67,11 +96,11 @@
 }
 
 @media only screen and (max-width: 320px) {
+
     .weathertext{
         font-size: 0.8rem;
     }
-    
-    .wetherarea{
+    .weatherarea{
     padding-top: 11px;
     }
    
