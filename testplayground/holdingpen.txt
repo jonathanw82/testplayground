@@ -1,0 +1,105 @@
+    intervalID = setInterval(function () {
+//         if (sho == 1 && hid == 0) {
+//             if (opacity < 1) {
+//                 opacity = opacity + 0.1;
+//                 weatherAlert.style.opacity = opacity;
+//             }
+//             else {
+//                 clearInterval(intervalID);
+//                 sho = 0;
+//                 hid = 1;
+//             }
+//         }
+//         if (sho == 0 && hid == 1) {
+//             if (opacity > 0) {
+//                 opacity = opacity - 0.1;
+//                 weatherAlert.style.opacity = opacity;
+//             }
+//             else {
+//                 clearInterval(intervalID);
+//                 sho = 1;
+//                 hid = 0;
+//             }
+//         }
+//     }, 100);
+// }
+
+
+
+// function hide(){
+//     let weatherAlert = document.getElementById('alert_heading');
+
+//     opacity = Number(window.getComputedStyle(weatherAlert).getPropertyValue("opacity"));
+
+//     intervalID = setInterval(function(){
+//          if(opacity > 0){
+//         opacity = opacity -0.1;
+//         weatherAlert.style.opacity = opacity;
+//         }
+//         else{
+//             clearInterval(intervalID);
+//             show();
+//         }}, 100);
+// }
+
+
+
+
+
+
+
+// function fadeout(){
+//     // set the interval of hide to 20 miliseconds
+//     intervalID = setInterval(hide, 50);
+// }
+// function fadein(){
+//     intervalID = setInterval(show, 50);
+// }
+// function show(){
+//     let weatherAlert = document.getElementById('alert_heading');
+//     // get computed style as a work round to get the opacity value as not all browsers support it
+//     // it will give the current opacity it gives it as a string value so we need to wrap it in a 
+//     // number constuctor function
+//     opacity = Number(window.getComputedStyle(weatherAlert).getPropertyValue("opacity"));
+
+//     if(opacity < 1){
+//         // reduce the value by 0.1
+//         opacity = opacity +0.1;
+//         weatherAlert.style.opacity = opacity;
+//        // console.log(opacity);
+//     }
+//     else{
+//         // clear the inteval
+//         clearInterval(intervalID);
+//         fadeout();
+//     }
+// }
+
+// function hide(show){
+//     let weatherAlert = document.getElementById('alert_heading');
+
+//     opacity = Number(window.getComputedStyle(weatherAlert).getPropertyValue("opacity"));
+
+//     if(opacity > 0){
+//         opacity = opacity -0.1;
+//         weatherAlert.style.opacity = opacity;
+//     }
+//     else{
+//         clearInterval(intervalID);
+//         fadein();
+//     }
+// }
+// var weatherAlert = document.getElementById('alert_heading');
+
+// function fadeOutAndCallback(weatherAlert, callback){
+// 	var opacity = 1;
+// 	var timer = setInterval(function(){
+// 		if(opacity > 0){
+// 			clearInterval(timer);
+// 			callback(); //this executes the callback function!
+// 		}
+// 		weatherAlert.style.opacity = opacity;
+// 		opacity -=  0.1;
+// 	}, 50);
+// };
+// }

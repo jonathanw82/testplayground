@@ -54,6 +54,7 @@
 .alert_heading{
     text-align: center;
     color: white;
+    opacity: 1;
 }
 
 .weathertextalert{
